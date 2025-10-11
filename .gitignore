@@ -1,0 +1,21 @@
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilt[Ee]n[Aa]ssets/
+
+# Unity Editor logs
+/[Ll]ogs/
+
+# Unity Machine Learning
+/[Mm]l-assets/
+
+# Xcode
+build/
+/*.pbxuser
+/*.mode1v3
+/*.mode2v3
+
+# Android
+.gradle/
+bin/
