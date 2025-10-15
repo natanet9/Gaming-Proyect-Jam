@@ -5,14 +5,15 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float speedMove = 3.0f;
-    PlayerInput actionMap;
-
+    PlayerInput playerInput;
+    CharacterController controller;
+    Vector2 inputs;
+    [SerializeField] float SpeedMove = 3f;
     // Start is called before the first frame update
     void Start()
     {
-        actionMap = GetComponent<PlayerInput>();
-
+        playerInput = GetComponent<PlayerInput>();
+        controller = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
@@ -20,9 +21,11 @@ public class PlayerController : MonoBehaviour
     {
         MovePlayer();
     }
-    public void MovePlayer()
+    void MovePlayer()
     {
-            Vector2 inputs = actionMap.actions["Move"].ReadValue<Vector2>();
-            transform.Translate(new Vector3(inputs.x, 0, inputs.y) * speedMove * Time.deltaTime);
+        inputs = playerInput.actions["Move"].ReadValue<Vector2>();
+        Vector3 move = new Vector3(inputs.x, 0, inputs.y);
+        controller.Move(transform.TransformDirection(move)*SpeedMove*Time.deltaTime);
     }
+    
 }
