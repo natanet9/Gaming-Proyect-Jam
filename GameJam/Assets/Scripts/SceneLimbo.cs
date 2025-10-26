@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,27 +5,25 @@ public class SceneLimbo : MonoBehaviour
 {
     [SerializeField] PlayerController2 player;
     [SerializeField] GameObject camioneta;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    private bool hasTriggered = false;
+
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag.Equals("Player") && name.Equals("camioneta"))
-        {
-            SceneManager.LoadScene("Limbo");
-        }
-        if (other.tag.Equals("Player") && name.Equals("Stoping"))
+        if (!other.CompareTag("Player") || hasTriggered) return;
+
+        if (name == "Stoping")
         {
             player.move = false;
             camioneta.SetActive(true);
+            hasTriggered = true;
+
+            
+            GetComponent<Collider>().enabled = false;
+        }
+        else if (name == "camioneta")
+        {
+            SceneManager.LoadScene("Limbo");
         }
     }
 }

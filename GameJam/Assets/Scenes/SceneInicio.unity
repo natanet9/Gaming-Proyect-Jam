@@ -227,13 +227,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 814f790d4da10be449d54ace9a4b5a40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInput: {fileID: 14272507}
   anim: {fileID: 1325861738}
-  SpeedMove: 7
+  walkSpeed: 8
+  runSpeed: 10
   mouse_horizontal: 1
   mouse_vertical: 1
   cam: {fileID: 963194227}
   gravity: -9.81
   move: 1
+  Scenerunning: 0
+  stamina: {fileID: 0}
 --- !u!64 &14272511
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -18280,8 +18284,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 278aba797cadb264d82a4a82b8166a49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  camioneta: {fileID: 0}
+  player: {fileID: 14272510}
+  camioneta: {fileID: 1449942910}
 --- !u!4 &1449942916 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3b219e72a462dd1499ef48f8e6c8ae5d, type: 3}
