@@ -17,6 +17,10 @@ public class PlayerController2 : MonoBehaviour
     float maxrotationLookUp = -60.0f;
      float maxrotationLookDown = 60.0f;
     [SerializeField] Camera cam;
+    [SerializeField] float gravity = -9.81f;
+    public bool move = true;
+    Vector3 velocity;
+    bool isgrounded;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +33,10 @@ public class PlayerController2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MovePlayer();
+        if (move)
+        {
+            MovePlayer();
+        }
        MoveCamera();
     }
     void MovePlayer()
@@ -40,6 +47,14 @@ public class PlayerController2 : MonoBehaviour
         bool ismoving = move.magnitude != 0;
         anim.SetBool("Walk", ismoving);
 
+        //gravedad
+        isgrounded = controller.isGrounded;
+        if (isgrounded && velocity.y < 0)
+        {
+            velocity.y = -2f;
+        }
+        velocity.y += gravity * Time.deltaTime;
+        controller.Move(velocity * Time.deltaTime);
     }
     void MoveCamera()
     {
