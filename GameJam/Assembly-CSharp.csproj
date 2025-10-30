@@ -63,6 +63,7 @@
     <Compile Include="Assets\Scripts\PlayerController2.cs" />
     <Compile Include="Assets\Scripts\StamineController.cs" />
     <Compile Include="Assets\Scripts\SceneLimbo.cs" />
+    <Compile Include="Assets\Scripts\ContadorDeObjetos.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
