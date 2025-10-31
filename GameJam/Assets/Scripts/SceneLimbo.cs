@@ -4,7 +4,8 @@ using UnityEngine.SceneManagement;
 public class SceneLimbo : MonoBehaviour
 {
     [SerializeField] PlayerController2 player;
-    [SerializeField] GameObject camioneta;
+    [SerializeField] MeshRenderer camioneta;
+    [SerializeField] Animator animCam;
 
     private bool hasTriggered = false;
 
@@ -15,8 +16,10 @@ public class SceneLimbo : MonoBehaviour
         if (name == "Stoping")
         {
             player.move = false;
-            camioneta.SetActive(true);
+            camioneta.enabled = true;
             hasTriggered = true;
+
+            animCam.Play("New Animation");
 
             
             GetComponent<Collider>().enabled = false;
