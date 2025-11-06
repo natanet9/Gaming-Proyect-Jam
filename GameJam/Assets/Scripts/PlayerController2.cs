@@ -30,6 +30,8 @@ public class PlayerController2 : MonoBehaviour
 
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         playerInput = GetComponent<PlayerInput>();
         controller = GetComponent<CharacterController>();
         currentSpeed = walkSpeed;
