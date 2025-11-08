@@ -66,12 +66,19 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\LimboController.cs" />
     <Compile Include="Assets\Scripts\ProgresoLimbo.cs" />
+    <Compile Include="Assets\Scripts\Enemy.cs" />
+    <Compile Include="Assets\Scripts\Interactable\Interactable.cs" />
     <Compile Include="Assets\Scripts\PlayerController2.cs" />
+    <Compile Include="Assets\Scripts\NextLevelCollider.cs" />
     <Compile Include="Assets\Scripts\StamineController.cs" />
+    <Compile Include="Assets\Scripts\SpawnObject.cs" />
+    <Compile Include="Assets\Scripts\Interactable\FrascLuciernagas.cs" />
     <Compile Include="Assets\Scripts\SceneLimbo.cs" />
+    <Compile Include="Assets\Scripts\GameOverController.cs" />
     <Compile Include="Assets\Scripts\RelatoController.cs" />
     <Compile Include="Assets\Scripts\PlayerReflexion.cs" />
-    <Compile Include="Assets\Scripts\NpcMovement.cs" />
+    <Compile Include="Assets\Scripts\Interactable\InteractRaycast.cs" />
+    <Compile Include="Assets\Scripts\Interactable\Laberinto2.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
