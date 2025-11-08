@@ -31,11 +31,6 @@ public class CollectableHandler : MonoBehaviour
             currentCollectable = other;
         }
 
-        // Detectar puerta
-        if (other.CompareTag("Puerta"))
-        {
-            IntentarAbrirPuerta();
-        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -54,7 +49,7 @@ public class CollectableHandler : MonoBehaviour
             currentCollectable = null;
 
             score++;
-
+            IntentarAbrirPuerta();
             if (scoreText != null)
                 scoreText.text = "Contador: " + score;
         }
@@ -71,7 +66,7 @@ public class CollectableHandler : MonoBehaviour
 
             if (puertaAnim != null)
             {
-                puertaAnim.SetTrigger("abrir");
+                puertaAnim.SetBool("abrir",true);
             }
         }
     }
