@@ -79,6 +79,7 @@
     <Compile Include="Assets\Scripts\PlayerReflexion.cs" />
     <Compile Include="Assets\Scripts\Interactable\InteractRaycast.cs" />
     <Compile Include="Assets\Scripts\Interactable\Laberinto2.cs" />
+    <Compile Include="Assets\Scripts\ContadorDeObjetos.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
