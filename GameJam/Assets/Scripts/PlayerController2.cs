@@ -26,10 +26,16 @@ public class PlayerController2 : MonoBehaviour
     [SerializeField] bool Scenerunning = true;
     [HideInInspector] public StamineController stamina;
 
+    [SerializeField] float distSuelo = 1.5f;
+    [SerializeField] LayerMask groundMask;
+     public bool evitarCaidas = true;  
+
     private bool isRunning = false;
 
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         playerInput = GetComponent<PlayerInput>();
         controller = GetComponent<CharacterController>();
         currentSpeed = walkSpeed;
@@ -77,22 +83,43 @@ public class PlayerController2 : MonoBehaviour
         }
     }
 
-    void MovePlayer()
+  void MovePlayer()
     {
-        inputs = playerInput.actions["Move"].ReadValue<Vector2>();
+         inputs = playerInput.actions["Move"].ReadValue<Vector2>(); 
         Vector3 move = new Vector3(inputs.x, 0, inputs.y);
+        move = transform.TransformDirection(move).normalized;
 
-        controller.Move(transform.TransformDirection(move) * currentSpeed * Time.deltaTime);
+        Vector3 basePos = transform.position + Vector3.down * (controller.height / 2f - controller.skinWidth);
+        bool allowMove = true;
+
+        if (evitarCaidas && move.magnitude > 0.1f) 
+        {
+            float offset = 0.3f;
+            Vector3 rayOrigin = basePos + move * offset;
+            bool groundAhead = Physics.Raycast(rayOrigin, Vector3.down, distSuelo, groundMask);
+
+            if (!groundAhead && controller.isGrounded)
+            {
+                allowMove = false;
+            }
+
+            Debug.DrawRay(rayOrigin, Vector3.down * distSuelo, groundAhead ? Color.green : Color.red);
+        }
+
+        // Movimiento
+        if (allowMove)
+            controller.Move(move * currentSpeed * Time.deltaTime);
 
         // Gravedad
         isgrounded = controller.isGrounded;
         if (isgrounded && velocity.y < 0)
-        {
             velocity.y = -2f;
-        }
+
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
+
+
 
     void MoveCamera()
     {

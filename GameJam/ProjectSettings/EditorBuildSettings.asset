@@ -6,9 +6,24 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: dc6e034aabf5d904abf7d796f64d01ae
+  - enabled: 1
     path: Assets/Scenes/SceneInicio.unity
     guid: 0edfbc35881746545ad485c5b2b79e93
   - enabled: 1
     path: Assets/Scenes/Limbo.unity
     guid: e048cbdd3b1c466498005ce9ce89d5b1
+  - enabled: 1
+    path: Assets/Scenes/Reflexion1.unity
+    guid: 59f1411db68fdb44db3518afd80be0b7
+  - enabled: 1
+    path: Assets/Scenes/LaberintoCasa.unity
+    guid: 27d6d3ea4c44a2645a78efdab095ea57
+  - enabled: 1
+    path: Assets/Scenes/Reflexion2.unity
+    guid: 7edd02d1f88bef34692ed3555b862467
+  - enabled: 1
+    path: Assets/Scenes/bosque.unity
+    guid: 484c1ab1008913848a728e0abda62bc8
   m_configObjects: {}
